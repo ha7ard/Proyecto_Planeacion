@@ -1,0 +1,110 @@
+Este manual abarca el grupo de procedimientos técnicos requeridos en el país de instalar, configurar, sostener
+y recobrar el sistema de reconocimiento facial para control académico en aulas universitarias. Proveerá instrucciones 
+completas y sugerencias que pueden seguirse por todas y cada una de las partes del conjunto de
+mantenimiento y los gerentes de redes durante la ronda técnica.Como se señaló ya antes, 
+la asistencia técnica solo se dará después de que el producto se instale.
+
+Requisitos del Sistema
+
+1 Requisitos de Hardware
+
+Cámara de alta resolución: 1080p o superior para una captura precisa de rostros.
+Servidor de procesamiento:
+Procesador: Intel i7 o superior
+Memoria RAM: 16 GB o superior
+Disco Duro: SSD de al menos 512 GB
+GPU: Recomendable para procesamiento rápido en tiempo real.
+Dispositivos de red: Conectividad de red local para transmisión de datos entre la cámara y el servidor.
+
+1.2 Requisitos de Software
+Sistema Operativo: Linux (Ubuntu 20.04 o superior) o Windows Server 2019.
+Dependencias:
+Python 3.8 o superior, con las bibliotecas OpenCV, dlib, y numpy para el procesamiento de imágenes.
+Servidor web: AWS
+Base de Datos: MySQL o PostgreSQL para almacenar los datos de asistencia.
+Biblioteca de reconocimiento facial, como Face_recognition o una API de IA de terceros.
+
+2. Instalación del Sistema
+
+2.1 Instalación de Dependencias
+Instalar Python y bibliotecas
+Crear un proyecto de AWS y configurarlo para conectarse a la base de datos.
+Definir las rutas para los módulos de captura de imagen y asistencia.
+Instalar y configurar la base de datos:
+Crear una base de datos en MySQL/PostgreSQL.
+Ejecutar las migraciones de AWS para crear las tablas necesarias.
+
+2.2 Configuración de la Cámara
+Asegurarse de que la cámara esté conectada al servidor y reconocida en el sistema.
+Configurar la cámara para capturar imágenes en tiempo real a la resolución recomendada.
+Realizar pruebas de conexión para garantizar que los datos se transmiten sin problemas.
+
+3. Configuración del Sistema
+
+3.1 Configuración de Reconocimiento Facial
+Modelos de reconocimiento facial:
+Subir al servidor las imágenes de los estudiantes, que serán utilizadas como datos de referencia.
+Definir parámetros de precisión y sensibilidad en el código para reducir falsos positivos.
+Pruebas de precisión:
+Ejecutar pruebas para asegurarse de que el sistema identifica correctamente a los estudiantes.
+Ajustar los valores de tolerancia en el código según los resultados de las pruebas.
+
+3.2 Configuración de Seguridad
+Cifrado de datos:
+Configurar cifrado en la base de datos para proteger la información personal de los estudiantes.
+Usar HTTPS en las conexiones web para proteger los datos durante la transmisión.
+Autenticación y permisos:
+Configurar el sistema para que solo los usuarios autorizados (profesores, administradores) puedan acceder a la información.
+Usar roles en la base de datos para restringir el acceso a funciones críticas.
+
+4. Mantenimiento del Sistema
+
+4.1 Mantenimiento Preventivo
+Verificación de la cámara:
+Realizar verificaciones semanales de la cámara para asegurarse de que está funcionando correctamente.
+Limpiar regularmente la lente de la cámara.
+Actualización de software:
+Mantener actualizado el software del sistema y las dependencias.
+Revisar las actualizaciones de seguridad y de la biblioteca de reconocimiento facial.
+Optimización de la base de datos:
+Programar limpiezas periódicas en la base de datos para mejorar el rendimiento.
+Crear respaldos automáticos de la base de datos para evitar la pérdida de datos.
+
+4.2 Resolución de Problemas Comunes
+Problema: La cámara no reconoce a algunos estudiantes.
+Solución: Verificar las condiciones de iluminación y ajustar la sensibilidad del sistema en el código.
+Problema: El sistema es lento al reconocer rostros.
+Solución: Asegurarse de que el servidor tiene suficientes recursos de memoria y CPU. Considerar usar una GPU.
+
+5. Resolución de Problemas Específicos
+
+5.1 Errores en la Captura de Imagen
+Causa posible: La cámara no está configurada correctamente o tiene problemas de conexión.
+Solución: Verificar la conexión de la cámara y su configuración en el sistema. Reiniciar el servidor si es necesario.
+
+5.2 Error de Conexión con la Base de Datos
+Causa posible: Problemas de red o credenciales incorrectas.
+Solución: Comprobar la configuración de la base de datos en el archivo de configuración de Django y restablecer la conexión.
+
+5.3 Fallo en el Reconocimiento Facial
+Causa posible: Parámetros de precisión mal configurados o calidad de imagen baja.
+Solución: Ajustar los parámetros de tolerancia y realizar pruebas con diferentes niveles de iluminación y ángulos de la cámara.
+
+6. Procedimiento de Copias de Seguridad y Recuperación
+
+6.1 Creación de Copias de Seguridad
+Programar copias de seguridad automáticas de la base de datos, al menos semanalmente.
+Guardar las copias de seguridad en un servidor externo o una unidad de almacenamiento segura.
+
+6.2 Recuperación de Copias de Seguridad
+Para recuperar los datos en caso de fallo, restaurar desde la copia de seguridad más reciente.
+Realizar pruebas periódicas de restauración para asegurar que las copias de seguridad funcionan correctamente.
+
+7. Contacto de Soporte y Escalación
+
+Soporte de Primer Nivel:
+Personal de TI de la universidad.
+Instrucciones para restablecer los componentes básicos y verificar el funcionamiento.
+Soporte de Segundo Nivel:
+Contacto con el equipo de desarrollo en caso de problemas graves o errores en el sistema de reconocimiento facial.
+Escalación de problemas a los desarrolladores cuando se requiere intervención en el código.
